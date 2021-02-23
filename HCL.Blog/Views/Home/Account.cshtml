@@ -1,0 +1,12 @@
+﻿@using HCL.Blog.ViewModels
+@model UserAccountViewModel
+@{
+    ViewBag.Title = "User Account";
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <hr />
+    <h3 class="text-success">@Model.FirstName @Model.Surname</h3>
+    <h4 class="text-warning">User Account Id: @Model.Id</h4>
+</div>

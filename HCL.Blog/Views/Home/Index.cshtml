@@ -1,0 +1,43 @@
+﻿@using HCL.Blog.ViewModels
+@model IEnumerable<UserAccountViewModel>
+@{
+    ViewBag.Title = "User Accounts";
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Surname</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Count() > 0)
+                    {
+                        foreach (var userAccount in Model)
+                        {
+                            <tr>
+                                <td scope="row">@userAccount.Id</td>
+                                <td>@userAccount.FirstName</td>
+                                <td>@userAccount.Surname</td>
+                                <td><button class="btn btn-sm btn-primary" onclick="location.href='@(Url.Action("Account", "Home", new { id = userAccount.Id}))'">View</button></td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="text-danger text-center">No User Accounts Available</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
